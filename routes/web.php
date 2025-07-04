@@ -11,12 +11,18 @@ Route::get('/', function () {
 
 
 // Admin Routes
+
+Route::middleware('admin')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin_dashboard');
+    Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
+});
+
 Route::prefix('admin')->group(function () {
     Route::get('/login',[AdminAuthController::class, 'login'])->name('admin_login');
-    Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
+    Route::post('/login', [AdminAuthController::class, 'login_submit'])->name('admin_login_submit');
+    Route::get('/logout', [AdminAuthController::class, 'logout'])->name('admin_logout');
     Route::get('/forget-password', [AdminAuthController::class, 'forget_password'])->name('admin_forget_password');
     Route::get('/reset-password', [AdminAuthController::class, 'reset_password'])->name('admin_reset_password');
 
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin_dashboard');
 
 });
