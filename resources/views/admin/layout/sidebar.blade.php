@@ -9,15 +9,15 @@
 
         <ul class="sidebar-menu">
 
-            <li class="active"><a class="nav-link" href="{{ route('admin_dashboard') }}"><i
-                        class="fas fa-hand-point-right"></i>
+            <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_dashboard') }}"><i class="fas fa-hand-point-right"></i>
                     <span>Dashboard</span></a></li>
 
-            <li class="nav-item dropdown active">
+            {{-- <li class="nav-item dropdown ">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown
                         Items</span></a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a class="nav-link" href=""><i class="fas fa-angle-right"></i>
+                    <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i>
                             Item 1</a></li>
                     <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i>
                             Item 2</a></li>
@@ -34,7 +34,7 @@
                     <span>Table</span></a></li>
 
             <li class=""><a class="nav-link" href="invoice.html"><i class="fas fa-hand-point-right"></i>
-                    <span>Invoice</span></a></li>
+                    <span>Invoice</span></a></li> --}}
 
         </ul>
     </aside>

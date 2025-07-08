@@ -51,6 +51,37 @@ class AdminAuthController extends Controller
         return view('admin.profile');
     }
 
+    public function profile_submit(Request $request)
+    {
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+        ]);
+
+        $admin = Admin::where('id', Auth::guard('admin')->user()->id)->first();
+
+        if ($request->photo) {
+            $request->validate([
+                'photo' => ['mimes:jpg,jpeg,png,gif', 'max:2048'],
+            ]);
+            $final_name = 'admin_'.time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('uploads'), $final_name);
+            $admin->photo = $final_name;
+        }
+
+        if ($request->password) {
+            $request->validate([
+                'password' => ['required'],
+                'confirm_password' => ['required', 'same:password'],
+            ]);
+            $admin->password = Hash::make($request->password);
+        }
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->update();
+        return redirect()->back()->with('success', 'Profile updated successfully');
+    }
+
     public function forget_password()
     {
 
