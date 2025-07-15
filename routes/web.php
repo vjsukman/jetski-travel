@@ -18,13 +18,25 @@ Route::post('/register', [UserAuthController::class, 'register_submit'])->name('
 Route::get('/verify-email/{email}/{token}', [UserAuthController::class, 'register_verify'])->name('register_verify');
 Route::post('/verify-email/{email}/{token}', [UserAuthController::class, 'register_verify'])->name('register_verify_submit');
 Route::get('/forget-password', [UserAuthController::class, 'forget_password'])->name('forget_password');
+Route::post('/forget-password', [UserAuthController::class, 'forget_password_submit'])->name('forget_password_submit');
+Route::get('/reset-password/{token}/{email}', [UserAuthController::class, 'reset_password'])->name('reset_password');
+Route::post('/reset-password/{token}/{email}', [UserAuthController::class, 'reset_password_submit'])->name('reset_password_submit');
+
 
 
 // User Routes
 Route::middleware('user')->prefix('user')->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('user_dashboard');
     Route::get('/profile', [UserController::class, 'profile'])->name('user_profile');
+    Route::post('/profile', [UserController::class, 'profile_submit'])->name('user_profile_submit');
+    
 });
+
+Route::prefix('user')->group(function () {
+    
+});
+
+
 
 // Admin Routes
 Route::middleware('admin')->prefix('admin')->group(function () {

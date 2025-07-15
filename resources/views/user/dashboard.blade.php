@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-12">
-                    {{-- <h3 class="mb_20">Hello, {{ Auth::guard('web')->user()->name }}</h3> --}}
+                    <h3 class="mb_20">Hello, {{ Auth::guard('user')->user()->name }}</h3>
                     <div class="row box-items">
                         <div class="col-md-4">
                             <div class="box1">
