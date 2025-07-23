@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserAuthController;
 use App\Http\Controllers\Admin\AdminSliderController;
+use App\Http\Controllers\Admin\AdminWelcomeItemController;
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
@@ -42,12 +43,17 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin_dashboard');
     Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
     Route::post('/profile', [AdminAuthController::class, 'profile_submit'])->name('admin_profile_submit');
+
     Route::get('/slider/index', [AdminSliderController::class, 'index'])->name('admin_slider_index');
     Route::get('/slider/create', [AdminSliderController::class, 'create'])->name('admin_slider_create');
     Route::post('/slider/create', [AdminSliderController::class, 'create_submit'])->name('admin_slider_create_submit');
     Route::get('/slider/edit/{id}', [AdminSliderController::class, 'edit'])->name('admin_slider_edit');
     Route::post('/slider/edit/{id}', [AdminSliderController::class, 'edit_submit'])->name('admin_slider_edit_submit');
     Route::get('/slider/delete/{id}', [AdminSliderController::class, 'delete'])->name('admin_slider_delete');
+
+    Route::get('/welcome-item/index', [AdminWelcomeItemController::class, 'index'])->name('admin_welcome_item_index');
+    Route::post('/welcome-item/update', [AdminWelcomeItemController::class, 'update'])->name('admin_welcome_item_update');
+    
 
 });
 
