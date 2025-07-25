@@ -21,6 +21,14 @@
             <li class="{{ Request::is('admin/welcome-item/*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin_welcome_item_index') }}"><i class="fas fa-hand-point-right"></i>
                     <span>Welcome Item</span></a></li>
+
+            <li class="{{ Request::is('admin/feature/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_feature_index') }}"><i class="fas fa-hand-point-right"></i>
+                    <span>Feature</span></a></li>
+
+            <li class="{{ Request::is('admin/counter-item/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_counter_item_index') }}"><i class="fas fa-hand-point-right"></i>
+                    <span>Counter</span></a></li>
             {{-- <li class="nav-item dropdown ">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown
                         Items</span></a>

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use PHPUnit\Framework\Constraint\Count;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +25,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             // AdminSeeder::class,
-            WelcomeItemSeeder::class,
+            // WelcomeItemSeeder::class,
+            CounterItemSeeder::class,
             // Add other seeders here as needed
         ]);
     }
