@@ -33,6 +33,10 @@
             <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin_testimonial_index') }}"><i class="fas fa-hand-point-right"></i>
                     <span>Testimonial</span></a></li>
+
+            <li class="{{ Request::is('admin/team-members/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_team_member_index') }}"><i class="fas fa-hand-point-right"></i>
+                    <span>Team Member</span></a></li>
             {{-- <li class="nav-item dropdown ">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown
                         Items</span></a>

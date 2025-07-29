@@ -56,7 +56,6 @@ class AdminTestimonialController extends Controller
             'name' => 'required',
             'designation' => 'required',
             'comment' => 'required',
-            'photo' => 'required|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
 
         if ($request->hasFile('photo')) {
@@ -75,7 +74,6 @@ class AdminTestimonialController extends Controller
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
         $testimonial->comment = $request->comment;
-        $testimonial->photo = $finalName;
         $testimonial->save();
 
         return redirect()->route('admin_testimonial_index')->with('success', 'Testimonial updated successfully.');

@@ -12,6 +12,7 @@ use App\Models\Slider;
 use App\Models\WelcomeItem;
 use App\Models\Feature;
 use App\Models\CounterItem;
+use App\Models\TeamMember;
 use App\Models\Testimonial;
 
 class FrontController extends Controller
@@ -31,6 +32,18 @@ class FrontController extends Controller
         $counter_item = CounterItem::where('id',1)->first();
         $feature = Feature::get();
         return view('front.about' , compact('welcome_item', 'feature','counter_item'));
+    }
+
+    public function team_members()
+    {
+        $team_members = TeamMember::paginate(4);
+        return view('front.team_members', compact('team_members'));
+    }
+
+    public function team_member($slug)
+    {
+        $team_member = TeamMember::where('slug', $slug)->first();
+        return view('front.team_member', compact('team_member'));
     }
 
 }
