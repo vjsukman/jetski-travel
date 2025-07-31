@@ -53,8 +53,8 @@
                         <li class="nav-item {{ Route::is('team_members') ? 'active' : '' }}">
                             <a href="{{ route('team_members') }}" class="nav-link">Team</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="faq.html" class="nav-link">FAQ</a>
+                        <li class="nav-item {{ Route::is('faq') ? 'active' : '' }}">
+                            <a href="{{ route('faq') }}" class="nav-link">FAQ</a>
                         </li>
                         <li class="nav-item">
                             <a href="blog.html" class="nav-link">Blog</a>

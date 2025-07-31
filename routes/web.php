@@ -13,11 +13,13 @@ use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
+use App\Http\Controllers\Admin\AdminFaqController;
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/team-members', [FrontController::class, 'team_members'])->name('team_members');
 Route::get('/team-member/{slug}', [FrontController::class, 'team_member'])->name('team_member');
+Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
 
 Route::get('/login', [UserAuthController::class, 'login'])->name('login');
 Route::post('/login', [UserAuthController::class, 'login_submit'])->name('login_submit');
@@ -79,6 +81,13 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/team-members/edit/{id}', [AdminTeamMemberController::class, 'edit'])->name('admin_team_member_edit');
     Route::post('/team-members/edit/{id}', [AdminTeamMemberController::class, 'edit_submit'])->name('admin_team_member_edit_submit');
     Route::get('/team-members/delete/{id}', [AdminTeamMemberController::class, 'delete'])->name('admin_team_member_delete');
+
+    Route::get('/faqs/index', [AdminFaqController::class, 'index'])->name('admin_faq_index');
+    Route::get('/faqs/create', [AdminFaqController::class, 'create'])-> name('admin_faq_create');
+    Route::post('/faqs/create', [AdminFaqController::class, 'create_submit'])->name('admin_faq_create_submit');
+    Route::get('/faqs/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
+    Route::post('/faqs/edit/{id}', [AdminFaqController::class, 'edit_submit'])->name('admin_faq_edit_submit');
+    Route::get('/faqs/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
 
     Route::get('/welcome-item/index', [AdminWelcomeItemController::class, 'index'])->name('admin_welcome_item_index');
     Route::post('/welcome-item/update', [AdminWelcomeItemController::class, 'update'])->name('admin_welcome_item_update');

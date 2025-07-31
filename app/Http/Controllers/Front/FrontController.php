@@ -14,6 +14,7 @@ use App\Models\Feature;
 use App\Models\CounterItem;
 use App\Models\TeamMember;
 use App\Models\Testimonial;
+use App\Models\Faq;
 
 class FrontController extends Controller
 {
@@ -44,6 +45,12 @@ class FrontController extends Controller
     {
         $team_member = TeamMember::where('slug', $slug)->first();
         return view('front.team_member', compact('team_member'));
+    }
+
+    public function faq()
+    {
+        $faqs = Faq::all();
+        return view('front.faq', compact('faqs'));
     }
 
 }
