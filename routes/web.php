@@ -14,12 +14,14 @@ use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
 use App\Http\Controllers\Admin\AdminFaqController;
+use App\Http\Controllers\Admin\AdminBlogCategoryController;
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/team-members', [FrontController::class, 'team_members'])->name('team_members');
 Route::get('/team-member/{slug}', [FrontController::class, 'team_member'])->name('team_member');
 Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
+Route::get('/blog-category/{slug}', [FrontController::class, 'blog_category'])->name('blog_category');
 
 Route::get('/login', [UserAuthController::class, 'login'])->name('login');
 Route::post('/login', [UserAuthController::class, 'login_submit'])->name('login_submit');
@@ -88,6 +90,13 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/faqs/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
     Route::post('/faqs/edit/{id}', [AdminFaqController::class, 'edit_submit'])->name('admin_faq_edit_submit');
     Route::get('/faqs/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
+
+    Route::get('/blog-category/index', [AdminBlogCategoryController::class, 'index'])->name('admin_blog_category_index');
+    Route::get('/blog-category/create', [AdminBlogCategoryController::class, 'create'])->name('admin_blog_category_create');
+    Route::post('/blog-category/create', [AdminBlogCategoryController::class, 'create_submit'])->name('admin_blog_category_create_submit');
+    Route::get('/blog-category/edit/{id}', [AdminBlogCategoryController::class, 'edit'])->name('admin_blog_category_edit');
+    Route::post('/blog-category/edit/{id}', [AdminBlogCategoryController::class, 'edit_submit'])->name('admin_blog_category_edit_submit');
+    Route::get('/blog-category/delete/{id}', [AdminBlogCategoryController::class, 'delete'])->name('admin_blog_category_delete');
 
     Route::get('/welcome-item/index', [AdminWelcomeItemController::class, 'index'])->name('admin_welcome_item_index');
     Route::post('/welcome-item/update', [AdminWelcomeItemController::class, 'update'])->name('admin_welcome_item_update');

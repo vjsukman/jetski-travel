@@ -41,18 +41,20 @@
             <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin_faq_index') }}"><i class="fas fa-hand-point-right"></i>
                     <span>FAQ</span></a></li>
-            {{-- <li class="nav-item dropdown ">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown
-                        Items</span></a>
+
+            <li class="nav-item dropdown {{ Route::is('blog_category') ? 'active' : '' }}">
+                <a href="" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Blog
+                        Section</span></a>
                 <ul class="dropdown-menu">
-                    <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i>
-                            Item 1</a></li>
-                    <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i>
-                            Item 2</a></li>
+                    <li class="{{ Route::is('blog_category') ? 'active' : '' }}"><a
+                            href="{{ route('admin_blog_category_index') }}" class="nav-link"><i
+                                class="fas fa-angle-right"></i>Category</a></li>
+                    <li class="active"><a href="" class="nav-link"><i class="fas fa-angle-right"></i>Blog</a>
+                    </li>
                 </ul>
             </li>
 
-            <li class=""><a class="nav-link" href="setting.html"><i class="fas fa-hand-point-right"></i>
+            {{-- <li class=""><a class="nav-link" href="setting.html"><i class="fas fa-hand-point-right"></i>
                     <span>Setting</span></a></li>
 
             <li class=""><a class="nav-link" href="form.html"><i class="fas fa-hand-point-right"></i>

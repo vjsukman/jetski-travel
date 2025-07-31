@@ -56,8 +56,16 @@
                         <li class="nav-item {{ Route::is('faq') ? 'active' : '' }}">
                             <a href="{{ route('faq') }}" class="nav-link">FAQ</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="blog.html" class="nav-link">Blog</a>
+                        <li class="nav-item dropdown {{ Route::is('blog_category') ? 'active' : '' }}">
+                            <a href="" class="nav-link has-dropdown"><i
+                                    class="fas fa-hand-point-right"></i><span>Blog Section</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="{{ Route::is('blog_category') ? 'active' : '' }}"><a
+                                        href="{{ route('admin_blog_category_index') }}" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Category</a></li>
+                                <li class="active"><a href="" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Blog</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link">Contact</a>
